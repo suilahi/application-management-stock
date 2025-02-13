@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class produitDao {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/stockmaster";
-    private String jdbcUser = "root";  // Mettez votre utilisateur MySQL
-    private String jdbcPassword = "admin";  // Mettez votre mot de passe MySQL
-
+    private String jdbcURL = "jdbc:mysql://localhost:3306/stockmaster?useSSL=false";
+    private String jdbcUser = "root";
+    private String jdbcPassword = "admin";
     private static final String INSERT_PRODUCT = "INSERT INTO products (name, description, quantity, price, category) VALUES (?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_PRODUCTS = "SELECT * FROM products";
 
@@ -26,7 +25,7 @@ public class produitDao {
     // Ajouter un produit
     public void addProduct(produit produit) throws SQLException {
         try (Connection connection = getConnection();
-             PreparedStatement stmt = connection.prepareStatement(INSERT_PRODUCT)) {
+        PreparedStatement stmt = connection.prepareStatement(INSERT_PRODUCT)) {
             stmt.setString(1, produit.getName());
             stmt.setString(2, produit.getDescription());
             stmt.setInt(3, produit.getQuantite());
