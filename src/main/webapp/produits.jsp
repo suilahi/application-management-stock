@@ -29,7 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="produit" items="${produit}">
+        <c:forEach var="produit" items="${produits}">
             <tr>
                 <td class="border p-2"><c:out value="${produit.id}" /></td>
                 <td class="border p-2"><c:out value="${produit.name}" /></td>

@@ -32,8 +32,9 @@ public class ProduitServlet extends HttpServlet {
             System.out.println("The list"+produit);
 
         }
-        RequestDispatcher rd = request.getRequestDispatcher("produits.jsp");
         request.setAttribute("produit", produits);
+        RequestDispatcher rd = request.getRequestDispatcher("produits.jsp");
+
 
         rd.forward(request, response);
     }
