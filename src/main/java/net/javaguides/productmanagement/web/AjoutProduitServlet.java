@@ -14,32 +14,26 @@ import java.util.List;
 import java.sql.SQLException;
 
 
+public class AjoutProduitServlet extends HttpServlet {
 
-public class ProduitServlet extends HttpServlet {
-    private static final long serialVersionUID = 1;
-    ProduitDao produitDao ;
+    static final long serialVersionUID = 1L;
+
+    ProduitDao produitDao = null;
 
     public void init() {
         produitDao = new ProduitDao();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        List<Produit> produits = produitDao.getAllProducts();
-
-        for (Produit produit : produits) {
-            System.out.println("The list"+produit);
-
-        }
-        RequestDispatcher rd = request.getRequestDispatcher("produits.jsp");
-        request.setAttribute("produit", produits);
-
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        RequestDispatcher rd = request.getRequestDispatcher("ajouter.jsp");
         rd.forward(request, response);
     }
 
-    private void INSERT_PRODUCT(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException
+    {
         try {
             String name = request.getParameter("name");
             String description = request.getParameter("description");
@@ -54,13 +48,10 @@ public class ProduitServlet extends HttpServlet {
             produitDao.addProduct(newProduct);
 
             // Redirect to the product list
-            response.sendRedirect("produits.jsp");
+            response.sendRedirect("/untitled2");
         } catch (NumberFormatException e) {
             e.printStackTrace(); // Log the error
             response.sendRedirect("errorPage.jsp?error=Invalid+Input");
         }
     }
-
-
 }
-

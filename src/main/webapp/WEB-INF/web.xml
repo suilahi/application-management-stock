@@ -6,12 +6,21 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>ProductServlet</servlet-name>
+    <servlet-name>ProduitServlet</servlet-name>
     <servlet-class>net.javaguides.productmanagement.web.ProduitServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ProductServlet</servlet-name>
+    <servlet-name>ProduitServlet</servlet-name>
     <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AjoutProduitServlet</servlet-name>
+    <servlet-class>net.javaguides.productmanagement.web.AjoutProduitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjoutProduitServlet</servlet-name>
+    <url-pattern>/ajouter</url-pattern>
   </servlet-mapping>
 </web-app>
 

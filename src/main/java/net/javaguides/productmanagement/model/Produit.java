@@ -1,6 +1,6 @@
 package net.javaguides.productmanagement.model;
 
-public class produit {
+public class Produit {
     private int id;
     private String name;
     private String description;
@@ -8,7 +8,7 @@ public class produit {
     private double prixUnitaire;
     private String categorie;
 
-    public produit(String name, String description, int quantite, double prixUnitaire, String categorie) {
+    public Produit(String name, String description, int quantite, double prixUnitaire, String categorie) {
         this.name = name;
         this.description = description;
         this.quantite = quantite;
@@ -18,7 +18,7 @@ public class produit {
 
 
 
-    public produit(int id, String name, String description, int quantite, double prixUnitaire, String categorie) {
+    public Produit(int id, String name, String description, int quantite, double prixUnitaire, String categorie) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -76,5 +76,17 @@ public class produit {
 
     public void setCategorie(String categorie) {
         this.categorie = categorie;
+    }
+
+    @Override
+    public String toString() {
+        return "Produit{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", quantite=" + quantite +
+                ", prixUnitaire=" + prixUnitaire +
+                ", categorie='" + categorie + '\'' +
+                '}';
     }
 }
